@@ -1,0 +1,16 @@
+<template name="edit-agency">
+  <div id="edit-agency">
+    {{> top_nav}}
+    <div style="color:{{err_message.color}}; font-weight:bold;">
+      {{err_message.text}}
+    </div>
+    <h3>edit-agency &mdash; <span style="font-family:monospace;font-size:11pt;">{{agency.item_id}}</span></h3>
+    <div style="margin-bottom:20px;">
+      [ <a href="#" class="reset">reset</a> ]
+      [ <a href="/agency/{{agency.item_id}}">main-page</a> ]
+    </div>
+
+    <textarea id="cm_TextArea"></textarea>
+
+  </div>
+</template>

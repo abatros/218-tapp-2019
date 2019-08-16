@@ -1,0 +1,20 @@
+<template name="districts_directory">
+  <div id="districts-directory">
+    {{> top_nav}}
+    <h3>districts-Directory</h3>
+    <div style="margin-bottom:20px;">
+      [ <a href="/new-district">create new district</a> ]
+    </div>
+
+    <h5>search</h5>
+    {{#each district in districts}}
+    <div>
+      <a href="/district/{{district.folder_id}}"> {{district.label}}</a>
+      [ <a href="{{district.folder_id}}" class="select-district">select</a> ]
+      {{#unless signed_as}}
+      [ <a href="/district/{{district.folder_id}}?sign-in=true">sign-in</a> ]
+      {{/unless}}
+    </div>
+    {{/each}}
+  </div>
+</template>

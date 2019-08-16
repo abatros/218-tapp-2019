@@ -1,0 +1,30 @@
+<template name="contracts_directory">
+  <div id="contracts-directory">
+    {{> top_nav}}
+    <h3>Contracts-Directory</h3>
+    <h5>search</h5>
+    {{#each contract in contracts}}
+    <div style="display:table-row">
+      <div style="display:table-cell">
+      <a href="/contract/{{contract.folder_id}}"> {{contract.contract_name}}</a>
+      </div>
+      &emsp;
+      <div style="display:table-cell">
+      <a href="/district/{{contract.cfile_id}}">{{contract.cfile_name}}</a>
+    </div>
+      &emsp;
+      <div style="display:table-cell">
+      <a href="/district/{{contract.district_id}}">{{contract.district_name}}</a>
+    </div>
+      &emsp;
+      <div style="display:table-cell">
+      <a href="/student/{{contract.student_id}}"
+      title="{{contract.student_name}}">
+        {{contract.student_data.first_names}}
+        {{contract.student_data.last_name}}
+      </a>
+    </div>
+    </div>
+    {{/each}}
+  </div>
+</template>

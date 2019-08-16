@@ -1,0 +1,46 @@
+<template name="district">
+  <div id="district">
+    {{> top_nav}}
+    <h3>district</h3>
+    <div style="margin-bottom:20px;">
+      [ <a href="/duplicate-district/{{district.folder_id}}">duplicate</a> ]
+      [ <a href="/delete-district/{{district.folder_id}}">delete</a> ]
+      [ <a href="/edit-district/{{district.folder_id}}">edit</a> ]
+      [ <a href="#" class="select-district">select</a> ]
+      [ <a href="/new-school">new-school</a> ]
+      [ <a href="/students-directory?state=new-contract">new-contract</a> ]
+    </div>
+    {{#with district}}
+    <div style="font-family:monospace;">
+      <h5>DISTRICT</h5>
+      <div>label : {{district.label}}</div>
+      <div>name : {{district.name}}</div>
+      <div>phone : {{district.phone}}</div>
+
+      <h5>CONTRACTS</h5>
+      {{#each contract in contracts}}
+      <div>{{contract.folder_id}}
+        &emsp; <a href="/contract/{{contract.folder_id}}">{{contract.name}}</a>
+        &mdash; <a href="/student/{{contract.student_id}}">{{contract.student_name}}</a> {{contract.first_names}} {{contract.last_name}} </div>
+      {{/each}}
+      {{#unless contracts}}
+      <i style="font-family:serif">This district has No contracts</i>
+      {{/unless}}
+
+
+
+      <h5>SCHOOLS</h5>
+      <i style="font-family:times;">Should be build from contracts-data...</i>
+      {{#each school in schools}}
+      <div>{{school.folder_id}}
+        &emsp;<a href="/school/{{school.school_id}}">{{school.school_name}}</a>
+      </div>
+      {{/each}}
+
+      {{#unless schools}}
+      <i style="font-family:serif">This district has No schools</i>
+      {{/unless}}
+    </div>
+    {{/with}}
+  </div>
+</template>

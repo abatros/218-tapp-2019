@@ -1,0 +1,15 @@
+<template name="new-school">
+  <div id="new-school">
+    {{> top_nav}}
+    <div style="color:{{err_message.color}}; font-weight:bold;">
+      {{err_message.text}}
+    </div>
+    <h3>new-school</h3>
+    district:&ensp;<a href="/district/{{district.folder_id}}">{{district.label}}</a>
+    <div style="margin-bottom:20px;">
+    </div>
+
+    <textarea id="cm_TextArea"></textarea>
+
+  </div>
+</template>

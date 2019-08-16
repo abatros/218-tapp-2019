@@ -1,0 +1,37 @@
+<template name="student">
+  <div id="student">
+    {{> top_nav}}
+    <h3>student</h3>
+    <div style="margin-bottom:20px;">
+      [ <a href="/duplicate-student/{{student.user_id}}">duplicate</a> ]
+      [ <a href="/delete-student/{{student.user_id}}">delete</a> ]
+      [ <a href="/edit-student/{{student.user_id}}">edit</a> ]
+      [ <a href="#" class="select-student">select</a> ]
+    </div>
+    {{#with student}}
+    <div>
+      <div>firstNames : {{student.first_names}}</div>
+      <div>lastName : {{student.last_name}}</div>
+      <div>school : <a href="/school/{{school_id}}">{{school_title}}</a></div>
+      <div>district : {{district_name}}</div>
+
+      <h5>CONTRACTS</h5>
+      {{#each contract in contracts}}
+      <div>{{contract.object_id_two}}
+        &emsp; <a href="/contract/{{contract.object_id_two}}">{{contract.contract_name}}</a>
+        &mdash; {{contract.district_name}} </div>
+      {{/each}}
+
+
+      <h5>TUTORS</h5>
+      {{#each tutor in tutors}}
+      <div>
+        &emsp; <a href="/tutor/{{tutor.tutor_id}}">{{tutor.tutor_name}}</a>
+      </div>
+      {{/each}}
+
+
+    </div>
+    {{/with}}
+  </div>
+</template>

@@ -1,0 +1,25 @@
+<head>
+  <style>
+    #modal-panel {
+      height: 100%; /* 100% Full-height */
+      width: 0; /* 0 width - change this with JavaScript */
+      position: fixed; /* Stay in place */
+      z-index: 300; /* Stay on top */
+      top: 0px; /* Stay at the top */
+      left: 0;
+      background-color: rgba(50,50,50,0.6); /* Black*/
+      _background-color: rgba(240,240,240,0.8); /* Black*/
+      overflow-x: hidden; /* Disable horizontal scroll */
+      padding-top: 0px; /* Place content 60px from the top */
+      transition: 0.3s; /* 0.5 second transition effect to slide in the sidenav */
+    }
+    #modal-panel div {
+      margin:60px; padding:60px;
+    }
+  </style>
+</head>
+<template name="modal_panel">
+  <div id='modal-panel' style="">
+    {{> Template.dynamic template=activeTemplate}}
+  </div>
+</template>

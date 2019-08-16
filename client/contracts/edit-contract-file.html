@@ -1,0 +1,24 @@
+<template name="edit-contract-file">
+  <div id="edit-contract-file">
+    {{> top_nav}}
+    <div style="color:{{err_message.color}}; font-weight:bold;">
+      {{err_message.text}}
+    </div>
+    <h3>edit-contract_file &mdash; <span style="font-family:monospace;font-size:11pt;">{{contract_file.item_id}}</span></h3>
+    {{#with contract_file}}
+    <h5>district: {{district_label}}</h5>
+    <h5>agency: {{agency_title}}</h5>
+    {{/with}}
+    <div style="margin-bottom:20px;">
+      [ <a href="#" class="reset">reset</a> ]
+      [ <a href="/contract-file/{{contract_file.item_id}}">main-page</a> ]
+    </div>
+
+    <textarea id="cm_TextArea"
+      style="      border: 1px solid #eee,
+            height: auto,
+"
+    ></textarea>
+
+  </div>
+</template>

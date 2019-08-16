@@ -1,0 +1,40 @@
+<template name="contract">
+  <div id="contract">
+    {{> top_nav}}
+    <h3>Contract</h3>
+    <div style="margin-bottom:20px;">
+      [ <a href="/duplicate-contract/{{folder_id}}">duplicate</a> ]
+      [ <a href="/delete-contract/{{folder_id}}">delete</a> ]
+      [ <a href="/edit-contract/{{folder_id}}">edit</a> ]
+      [ <a href="#">push on clipboard</a> ]
+    </div>
+
+    {{#with contract}}
+    <div>
+      <div>contract-number : {{contract_number}}</div>
+      <div>district : <a href="/district/{{district_id}}">{{district_name}}</a></div>
+      <div>school : {{school_name}}</div>
+      <div>student : <a href="/student/{{student.user_id}}">{{student.first_names}} {{student.last_name}}</a></div>
+    </div>
+    {{/with}}
+
+    <h5 style="margin-bottom:0px;padding-bottom:0">AGENCIES</h5>
+    <p style="font-style:italic;font-family:serif;margin-top:0;">
+      all agencies providing services for this case/contract
+    </p>
+
+    {{#with contract}}
+    <div style="line-height:16pt; font-size:10pt; margin:0 0 10pt;">
+    {{#each file in agency_files}}
+    <div>
+      {{file.agency_title}} &lt;<a href="/contract-file/{{file.item_id}}">{{file.title}}</a>&gt; [ <a href="?agency-file={{file.item_id}}" item_id="{{file.item_id}}" class="js-drop-contract-file">delete</a> ]
+    </div>
+    {{/each}}
+    </div>
+    {{/with}}
+
+    <input type="button" class="js-add-agency" value="Add Agency"/>
+
+
+  </div>
+</template>

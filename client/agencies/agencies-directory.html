@@ -1,0 +1,15 @@
+<template name="agencies_directory">
+  <div id="agencies-directory">
+    {{> top_nav}}
+    <h3>agencies-Directory</h3>
+    <h5>search</h5>
+    {{#each agency in agencies}}
+    <div>
+      <a href="/agency/{{agency.item_id}}" title="{{agency.name}}">{{agency.label}}</a>
+      {{#unless signed_as}}
+      [ <a href="/agency/{{agency.item_id}}?sign-in=true" class="js-sign-in">sign-in</a> ]
+      {{/unless}}
+    </div>
+    {{/each}}
+  </div>
+</template>

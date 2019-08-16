@@ -1,0 +1,16 @@
+<template name="edit-district">
+  <div id="edit-district">
+    {{> top_nav}}
+    <div style="color:{{err_message.color}}; font-weight:bold;">
+      {{err_message.text}}
+    </div>
+    <h3>edit-district &mdash; <span style="font-family:monospace;font-size:11pt;">{{district.folder_id}}</span></h3>
+    <div style="margin-bottom:20px;">
+      [ <a href="#" class="reset">reset</a> ]
+      [ <a href="/district/{{district.folder_id}}">main-page</a> ]
+    </div>
+
+    <textarea id="cm_TextArea"></textarea>
+
+  </div>
+</template>

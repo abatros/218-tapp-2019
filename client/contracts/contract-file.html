@@ -1,0 +1,29 @@
+<template name="contract_file">
+  <div id="contract-file">
+    {{> top_nav}}
+    <h3>Contract Agency-file</h3>
+    <div style="margin-bottom:20px;">
+      [ <a href="/duplicate-contract/{{item_id}}">duplicate</a> ]
+      [ <a href="/delete-contract/{{item_id}}">delete</a> ]
+      [ <a href="/edit-contract-file" class="js-edit-contract-file">edit</a> ]
+      [ <a href="#">push on clipboard</a> ]
+    </div>
+
+    {{#with file}}
+    <div style="line-height:18pt; font-size:12pt;">
+      <div>contract-number : <a href="/contract/{{contract_id}}">{{contract_number}}</a></div>
+      <div>district : <a href="/district/{{district_id}}">{{district_label}}</a></div>
+      <div>agency : <a href="/agency/{{agency_id}}">{{agency_title}}</a></div>
+      <div>student : <a href="/student/{{student_id}}">{{student_name}} {{student.first_names}} {{student.last_name}}</a></div>
+      {{#with file.tutor}}
+      <div>tutor : <a href="/tutor/{{file.tutor_id}}">{{student_name}} {{first_names}} {{last_name}}</a></div>
+      {{/with}}
+    </div>
+    {{/with}}
+
+
+    <pre style="line-height:14pt;margin:20px;">{{{html_yaml}}}</pre>
+
+
+  </div>
+</template>

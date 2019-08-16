@@ -1,0 +1,44 @@
+<template name="top_nav">
+
+  <div style="background-color: rgb(120,230,120); margin: 0 0 20px; padding:10px; text-align:center;">
+    {{signed_as.otype}} : {{signed_as.title}}
+  </div>
+
+
+  <div>
+    [ <a href='/students-directory'>students</a> ]
+    [ <a href='/tutors-directory'>tutors</a> ]
+    [ <a href='/agencies-directory'>agencies</a> ]
+    [ <a href='/districts-directory'>districts</a> ]
+    [ <a href='/schools-directory'>schools</a> ]
+    [ <a href='/contracts-directory'>contracts</a> ]
+    {{#if session 'signed-as'}}
+    [ <a href='#' class="js-sign-out" style="color:brown;">sign-out</a> ]
+    {{/if}}
+  </div>
+
+  <div style="margin:10px;">
+    {{#if session 'tutor'}}
+    &ensp;&mdash; tutor: <a href="/tutor/{{selected_tutor.user_id}}">{{selected_tutor.first_names}} {{selected_tutor.last_name}}</a>
+    {{/if}}
+
+    {{#if session 'agency'}}
+    &ensp;&mdash; agency: <a href="/agency/{{selected_agency.name}}">*{{selected_agency.label}}</a>
+    {{/if}}
+
+    {{#if session 'contract'}}
+    &ensp;&mdash; contract: <a href="/contract/{{selected_contract.name}}">*{{selected_contract.label}}</a>
+    {{/if}}
+
+    {{#if session 'student'}}
+    &ensp;&mdash; student: <a href="/student/{{selected_student.user_id}}">{{selected_student.username}}</a>
+    {{/if}}
+
+    {{#if session 'district'}}
+    &ensp;&mdash; district: <a href="/student/{{selected_district.name}}">{{selected_district.label}}</a>
+    {{/if}}
+
+
+  </div>
+
+</template>

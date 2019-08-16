@@ -1,0 +1,56 @@
+<head>
+  <style>
+    div#school label {
+      color: rgb(0,100,0);
+      font-weight:bold;
+    }
+  </style>
+</head>
+<template name="school">
+  <div id="school">
+    {{> top_nav}}
+    <h3>school &ensp;
+    <span style="font-family:monospace;font-size:11pt;">{{school.item_id}}</span>
+    </h3>
+    <div style="margin-bottom:20px;">
+      [ <a href="/duplicate-school/{{school.folder_id}}">duplicate</a> ]
+      [ <a href="/delete-school/{{school.folder_id}}">delete</a> ]
+      [ <a href="/edit-school/{{school.folder_id}}" class="edit-school">edit</a> ]
+      [ <a href="#" class="select-school">select</a> ]
+      [ <a href="/new-school">new-school</a> ]
+    </div>
+
+  <pre style="line-height:14pt;">
+{{{html_yaml}}}
+  </pre>
+
+
+{{school.title}}
+
+
+    {{#with school}}
+    <div style="font-family:monospace; line-height:16pt;">
+      <h5>SCHOOL</h5>
+      {{!--
+      <div>title: {{school.title}}</div>
+      <div>name: {{school.name}}</div>
+      <div>phone: {{school.phone}}</div>
+      --}}
+      {{#each it in school}}
+      <div>{{it}}</div>
+      {{/each}}
+
+
+      <h5>STUDENTS</h5>
+      {{#each student in students}}
+      <div>{{student.object_id_two}}
+        &emsp; <a href="/student/{{student.object_id_two}}">{{student.first_names}} {{student.last_name}}</a>
+        &mdash;</div>
+      {{/each}}
+      {{#unless students}}
+      <i style="font-family:serif">This school has No students</i>
+      {{/unless}}
+    </div>
+    {{/with}}
+  </div>
+</template>

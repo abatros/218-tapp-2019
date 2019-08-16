@@ -1,0 +1,59 @@
+<template name="tutor">
+  <div id="tutor">
+    {{> top_nav}}
+
+    <h3 style="color:rgb(80,80,80);">{{tutor.first_names}} {{tutor.last_name}} &ndash; tutor.</h3>
+
+    <div style="margin-bottom:20px;">
+      [ <a href="/duplicate-tutor/{{tutor.user_id}}">duplicate</a> ]
+      [ <a href="/delete-tutor/{{tutor.user_id}}">delete</a> ]
+      [ <a href="/edit-tutor/{{tutor.user_id}}">edit</a> ]
+      [ <a href="#" class="select-tutor">select</a> ]
+      {{#unless signed_as}}
+      [ <a href="#" class="js-sign-as" style="color:red;"><b>Sign-In</b></a> ]
+      {{/unless}}
+    </div>
+
+    {{#with tutor}}
+    <div>
+
+      <pre style="
+      line-height:14pt;
+      background-color: rgb(220,220,255);
+      padding:20px;
+      ">{{{html_yaml}}}</pre>
+
+
+      <h5>CONTRACTS</h5>
+      {{#each contract in contracts}}
+      <div>{{contract.object_id_two}}
+        &emsp; <a href="/contract/{{contract.object_id_two}}">{{contract.contract_name}}</a>
+        &mdash; {{contract.district_name}} </div>
+      {{/each}}
+      {{#unless students}}
+      <i style="font-family:serif">This tutor has No contracts</i>
+      {{/unless}}
+
+      <h5>AGENCIES</h5>
+      {{#each ag in agencies}}
+      <div>{{ag.object_id_two}}
+        &emsp; <a href="/agency/{{ag.object_id_two}}">{{ag.name}}</a>
+        &mdash;</div>
+      {{/each}}
+      {{#unless agencies}}
+      <i style="font-family:serif">This tutor is not registered with any agency.</i>
+      {{/unless}}
+
+      <h5>STUDENTS</h5>
+      {{#each student in students}}
+      <div>{{student.object_id_two}}
+        &emsp; <a href="/student/{{student.object_id_two}}">{{student.first_names}} {{student.last_name}}</a>
+        &mdash;</div>
+      {{/each}}
+      {{#unless students}}
+      <i style="font-family:serif">This tutor has No students</i>
+      {{/unless}}
+    </div>
+    {{/with}}
+  </div>
+</template>

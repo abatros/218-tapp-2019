@@ -1,0 +1,16 @@
+<template name="edit-school">
+  <div id="edit-school">
+    {{> top_nav}}
+    <div style="color:{{err_message.color}}; font-weight:bold;">
+      {{err_message.text}}
+    </div>
+    <h3>edit-school &mdash; <span style="font-family:monospace;font-size:11pt;">{{school.item_id}}</span></h3>
+    <div style="margin-bottom:20px;">
+      [ <a href="#" class="reset">reset</a> ]
+      [ <a href="/school/{{school.item_id}}">main-page</a> ]
+    </div>
+
+    <textarea id="cm_TextArea"></textarea>
+
+  </div>
+</template>

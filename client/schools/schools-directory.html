@@ -1,0 +1,12 @@
+<template name="schools_directory">
+  <div id="schools-directory">
+    {{> top_nav}}
+    <h3>schools-Directory</h3>
+    <h5>search</h5>
+    {{#each school in schools}}
+    <div>
+      <a href="/school/{{school.item_id}}" title="{{school.name}}">{{school.title}}</a>  @[{{school.district_label}}]
+    </div>
+    {{/each}}
+  </div>
+</template>

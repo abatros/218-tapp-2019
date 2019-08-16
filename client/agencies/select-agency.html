@@ -1,0 +1,14 @@
+<template name="select_agency">
+  <div id="select-agency" style="background-color:white;">
+    <h3>Agency Selection</h3>
+    <h5>search</h5>
+    {{#each agency in agencies}}
+    <div>
+      <input type="checkbox" value="{{agency.item_id}}" />
+      <a href="/agency/{{agency.item_id}}" title="{{agency.name}}">{{agency.title}}</a>
+    </div>
+    {{/each}}
+    <input type="button" value="Select" class="select"
+    style="width:200px; height:50px; margin-top:30px;">
+  </div>
+</template>

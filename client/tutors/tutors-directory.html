@@ -1,0 +1,18 @@
+<template name="tutors_directory">
+  <div id="tutors-directory">
+    {{> top_nav}}
+    <h3>Tutors-Directory</h3>
+    <h5>search</h5>
+    {{#each tutor in tutors}}
+    <div>
+      <a href="/tutor/{{tutor.item_id}}"> {{tutor.data.last_name}} - {{tutor.data.first_names}}</a>
+      &emsp;
+      {{tutor.data.city}}
+      {{#unless signed_as}}
+      [ <a href="/tutor/{{tutor._id}}?sign-in=true">sign-in</a> ]
+      {{/unless}}
+
+    </div>
+    {{/each}}
+  </div>
+</template>
